@@ -1,0 +1,38 @@
+<div class="sub-header">
+  <div>Pokemons</div>
+  <button mat-icon-button color="primary" (click)="addPokemon()">
+    <mat-icon>add</mat-icon>
+    Add
+  </button>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Experience</th>
+      <th>Image</th>
+      <th>Control</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of pokemons">
+      <td>{{ item.name | titlecase }}</td>
+      <td>{{ item.height }}</td>
+      <td>{{ item.weight }}</td>
+      <td>{{ item.experience }}</td>
+      <td><img src="{{ item.img }}" /></td>
+      <td>
+        <button mat-icon-button color="primary" (click)="editPokemon(item)">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" (click)="deletePokemon(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

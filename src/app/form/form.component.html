@@ -1,0 +1,81 @@
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="form">
+    <h2 mat-dialog-title>
+      <span *ngIf="!data">Add</span> <span *ngIf="data">Edit</span> Album
+    </h2>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input type="text" name="name" formControlName="name" matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Band</mat-label>
+      <input type="text" name="band" formControlName="band" matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-chip-list #genreList>
+        <mat-chip
+          *ngFor="let item of genre"
+          [removable]="removable"
+          (removed)="removeChip(item, genre)"
+        >
+          {{ item }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="Genre"
+          [matChipInputFor]="genreList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="addChip($event, genre)"
+        />
+      </mat-chip-list>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-chip-list #labelList>
+        <mat-chip
+          *ngFor="let item of label"
+          [removable]="removable"
+          (removed)="removeChip(item, label)"
+        >
+          {{ item }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="Label"
+          [matChipInputFor]="labelList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="addChip($event, label)"
+        />
+      </mat-chip-list>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-chip-list #producerList>
+        <mat-chip
+          *ngFor="let item of producer"
+          [removable]="removable"
+          (removed)="removeChip(item, producer)"
+        >
+          {{ item }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="Produser"
+          [matChipInputFor]="producerList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="addChip($event, producer)"
+        />
+      </mat-chip-list>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="form.value" [disabled]="form.invalid">
+    <span *ngIf="!data">Add</span> <span *ngIf="data">Edit</span>
+  </button>
+</mat-dialog-actions>

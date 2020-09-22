@@ -1,0 +1,30 @@
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: aliceblue;
+    height: 60px;
+    padding: 0 65px 0 25px;
+    font-size: 20px;
+    a {
+        text-decoration: none;
+    }
+}
+
+table {
+    width: 100%;
+    th {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.54);
+    }
+    tr {
+        text-align: center;
+        td {
+            vertical-align: middle;
+        }
+    }
+    img {
+        width: 80px;
+    }
+}

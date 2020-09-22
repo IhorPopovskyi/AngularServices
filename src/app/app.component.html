@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{ title }}</span>
+  <span class="example-spacer"></span>
+  <span class="nav">
+    <a [routerLink]="['/albums']">Albums</a>
+  </span>
+  <span class="nav">
+    <a [routerLink]="['/pokemons']">Pokemons</a>
+  </span>
+</mat-toolbar>
+<router-outlet></router-outlet>

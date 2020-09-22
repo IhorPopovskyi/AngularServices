@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "albums-7e8e7": {
+      "hosting": {
+        "angular-service-training": [
+          "albums-7e8e7"
+        ]
+      }
+    }
+  }
+}
